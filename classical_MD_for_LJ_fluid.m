@@ -21,8 +21,8 @@ format short
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 number_of_dim = 4;           % numerical parameter & you may change it
 npart = 4 * number_of_dim^3; % number of particle 
-den = 0.40;  %  reduced density 
-T_ref = 1.46; %  reduced reference temperature
+den = 0.8442;  %  reduced density 
+T_ref = 0.728; %  reduced reference temperature
 %
 side = (npart/den)^(1/3);  % length of box side
 A = side / number_of_dim;
@@ -43,7 +43,7 @@ dt = 0.010; %  reduced time-step
 [ax,ay,az] = force_acc(x, y, z, side, sideh, rc2, npart, mass);
 
 %%%%%%%%%%%%%%%%%%%%%%%%
-fileID_save_data_1 = fopen('class_md_test_2c.txt','w');
+fileID_save_data_1 = fopen('classical_MD_for_LJ_fluid.txt','w');
 %
 Nstep = 10000.;
 %
@@ -86,7 +86,7 @@ end
 fclose(fileID_save_data_1);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-read_md_data = fopen('class_md_test_2c.txt', 'r');               % 
+read_md_data = fopen('classical_MD_for_LJ_fluid.txt', 'r');               % 
 read_md_data = textscan(read_md_data, '%f %f %f %f');
 md_step_ii = read_md_data{1};
 md_epot = read_md_data{2};
